@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fff0f5;
+    padding: 20px;
+}
+
+h1 {
+    color: #b22222;
+}
+
+.buttons {
+    margin: 20px 0;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff69b4;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #ff1493;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    max-width: 300px;
+    max-height: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain; /* Usar contain para que as imagens e vídeos sejam redimensionados proporcionalmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#lightbox img,
+#lightbox video {
+    max-width: 90%;  /* Limita o tamanho do vídeo para 90% da largura da tela */
+    max-height: 90%; /* Limita a altura para 90% da tela */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    object-fit: contain; /* Garante que o conteúdo se ajuste sem distorcer ou dar zoom */
+}
+
+/* Ajusta o comportamento do close button */
+#lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.love-note {
+    background-color: #ffe4e1;
+    border: 2px dashed #ff69b4;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    color: #b22222;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    font-style: italic;
+}
+
+.love-note:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em; /* Aumenta o tamanho do título */
+    color: #ff1493; /* Cor vibrante para o título */
+    text-transform: uppercase; /* Coloca o título em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    margin-top: 30px; /* Espaço acima do título */
+    margin-bottom: 15px; /* Espaço abaixo do título */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
+  h2::after {
+    content: ''; /* Cria um efeito de linha abaixo do título */
+    display: block;
+    width: 50%; /* Controla o tamanho da linha */
+    height: 3px; /* Largura da linha */
+    background-color: #ff69b4; /* Cor da linha */
+    margin: 10px auto; /* Centraliza a linha */
+  }
+
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em; /* Aumenta o tamanho do título */
+    color: #ff1493; /* Cor vibrante para o título */
+    text-transform: uppercase; /* Coloca o título em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    margin-top: 30px; /* Espaço acima do título */
+    margin-bottom: 15px; /* Espaço abaixo do título */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
+  h1::after {
+    content: ''; /* Cria um efeito de linha abaixo do título */
+    display: block;
+    width: 50%; /* Controla o tamanho da linha */
+    height: 3px; /* Largura da linha */
+    background-color: #ff69b4; /* Cor da linha */
+    margin: 10px auto; /* Centraliza a linha */
+  }
+  
+  

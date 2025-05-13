@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Álbum</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Nosso Álbum de Momentos</h1>
+
+    <div class="buttons">
+        <button onclick="showGallery('dates')">Razões para te amar</button>
+        <button onclick="showGallery('carta')">Cartas para o amor da minha vida</button>
+    </div>
+
+    <!-- Álbum 1 -->
+    <div class="gallery" id="dates">
+        <h2>Razões para te amar</h2>
+        <div class="gallery-item">
+          <img src="foto1.jpeg" alt="Date 1" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto2.jpeg" alt="Date 2" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto3.jpeg" alt="Date 3" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto4.jpeg" alt="Date 4" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto5.jpeg" alt="Date 5" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto6.jpeg" alt="Date 6" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto7.jpeg" alt="Date 7" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto8.jpeg" alt="Date 8" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <div class="gallery-item">
+          <img src="foto9.jpeg" alt="Date 9" onclick="openLightbox(this.src, 'image')">
+        </div>
+        <!-- Adicione mais fotos conforme necessário -->
+        <div class="gallery-item">
+            <video onclick="openLightbox('video.mp4', 'video')" style="cursor: pointer;">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="gallery-item">
+            <video onclick="openLightbox('video1.mp4', 'video')" style="cursor: pointer;">
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Álbum 2 -->
+    <div class="gallery" id="carta" style="display: none;">
+        <h2>Cartas para o amor da minha vida</h2>
+        <div class="love-note" onclick="openModal('carta1')">
+            <p>Toque aqui para ler uma carta especial.</p>
+        </div>
+        <div class="love-note" onclick="openModal('carta2')">
+            <p>Toque aqui para ler uma outra carta especial.</p>
+        </div>
+        <div class="love-note" onclick="openModal('carta3')">
+            <p>Toque aqui para ler uma outra carta especial parte 3.</p>
+        </div>
+        <div class="love-note" onclick="openModal('carta4')">
+            <p>Toque aqui para ler uma outra carta especial parte 4.</p>
+        </div>
+        <!-- Mais cartas -->
+    </div>
+
+    <!-- Modal para abrir as cartas -->
+    <div id="modal" style="display: none;" onclick="closeModal()">
+        <div id="modal-content" class="love-note">
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <!-- Lightbox (expansão) -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" style="display: none;">
+        <video id="lightbox-video" controls style="display: none;">
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        function showGallery(galleryId) {
+            const galleries = document.querySelectorAll('.gallery');
+            galleries.forEach(gallery => {
+                gallery.style.display = 'none';
+            });
+            document.getElementById(galleryId).style.display = 'grid';
+        }
+
+        function openLightbox(src, type) {
+            const lightbox = document.getElementById("lightbox");
+            const img = document.getElementById("lightbox-img");
+            const video = document.getElementById("lightbox-video");
+
+            if (type === "image") {
+                img.src = src;
+                img.style.display = "block";
+                video.style.display = "none";
+            } else if (type === "video") {
+                video.querySelector("source").src = src;
+                video.load();
+                video.style.display = "block";
+                img.style.display = "none";
+            }
+
+            lightbox.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+            const video = document.getElementById("lightbox-video");
+            video.pause();
+        }
+
+        function openModal(cartaId) {
+            const modal = document.getElementById('modal');
+            const text = {
+                carta1: 'Obrigado por esta comigo nesses 3 anos, espero que isso que estamos vivendo dure para sempre, e não imagino minha vida sem você, Obrigado por tudo .',
+                carta2: 'Fiz isso com amor e carinho para te mostrar o quanto você é especial para mim, e o quanto eu te amo, você a paz no meu coração, e a razão do meu sorriso.',
+                carta3: 'Obrigado por todos os puxões de orelha, obrigado por me fazer sentido na vida, e por sempre me mostrar o lado bom da vida.',
+                carta4: 'Eu te amo Laísa Mammana Fernandes, e espero que você sempre esteja ao meu lado, e que possamos viver juntos por muito tempo.',
+            };
+            document.getElementById('modal-text').textContent = text[cartaId];
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
